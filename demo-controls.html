@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefits Demo Controls</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1e293b;
+            color: white;
+            padding: 2rem;
+            margin: 0;
+        }
+        
+        .controls {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #334155;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            margin-top: 0;
+            color: #14b8a6;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 0.75rem 1.5rem;
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #14b8a6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4);
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .section h2 {
+            color: #14b8a6;
+            margin-bottom: 1rem;
+        }
+        
+        .info {
+            background: #1e293b;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight {
+            color: #fbbf24;
+            font-weight: bold;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+        
+        .script-section {
+            background: #1e293b;
+            padding: 1rem;
+            border-radius: 4px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .script-line {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .script-line.active {
+            background: rgba(20, 184, 166, 0.2);
+            border-left-color: #14b8a6;
+        }
+        
+        .time {
+            color: #14b8a6;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <h1>🎬 Benefits Demo Control Panel</h1>
+        
+        <div class="section">
+            <h2>Quick Controls</h2>
+            <div class="button-group">
+                <button onclick="sendCommand('play')">▶️ Play</button>
+                <button onclick="sendCommand('pause')">⏸️ Pause</button>
+                <button onclick="sendCommand('restart')">🔄 Restart</button>
+                <button onclick="sendCommand('mute')">🔇 Mute/Unmute</button>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Jump to Scene</h2>
+            <div class="button-group">
+                <button onclick="sendCommand('scene1')">Scene 1: Intro</button>
+                <button onclick="sendCommand('scene2')">Scene 2: Timeline</button>
+                <button onclick="sendCommand('scene3')">Scene 3: Benefits</button>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Audio Controls</h2>
+            <div class="info">
+                <label>Background Music Volume: <span id="music-volume">30%</span></label>
+                <input type="range" id="music-slider" min="0" max="100" value="30" 
+                       onchange="updateVolume('music', this.value)">
+                
+                <label>Voice Volume: <span id="voice-volume">90%</span></label>
+                <input type="range" id="voice-slider" min="0" max="100" value="90" 
+                       onchange="updateVolume('voice', this.value)">
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Voiceover Script</h2>
+            <div class="script-section" id="script">
+                <div class="script-line" data-time="0.5">
+                    <span class="time">[0:00]</span> Welcome to an exciting preview of your enhanced 2025 employee benefits package.
+                </div>
+                <div class="script-line" data-time="3">
+                    <span class="time">[0:03]</span> This year, we've listened to your feedback and created a comprehensive benefits program that truly supports you and your family.
+                </div>
+                <div class="script-line" data-time="5.5">
+                    <span class="time">[0:05]</span> With increased coverage, significant cost savings, and new wellness initiatives, we're investing in what matters most - you.
+                </div>
+                <div class="script-line" data-time="8.5">
+                    <span class="time">[0:08]</span> Let's review the important dates for your 2025 benefits.
+                </div>
+                <div class="script-line" data-time="10">
+                    <span class="time">[0:10]</span> Starting January first, your enhanced medical, dental, and vision coverage begins - with a fifteen percent reduction in premiums.
+                </div>
+                <div class="script-line" data-time="12.5">
+                    <span class="time">[0:12]</span> On March first, our new wellness program launches, along with an increased H-S-A match of up to three thousand dollars.
+                </div>
+                <div class="script-line" data-time="14.5">
+                    <span class="time">[0:14]</span> Remember, December thirty-first is when your coverage period ends, with automatic renewal available for your convenience.
+                </div>
+                <div class="script-line" data-time="16.5">
+                    <span class="time">[0:16]</span> Now, let's explore the game-changing benefits we're introducing for 2025.
+                </div>
+                <div class="script-line" data-time="18">
+                    <span class="time">[0:18]</span> You'll have access to twenty-four seven mental health support, zero-dollar telemedicine visits, and comprehensive wellness rewards worth up to twelve hundred dollars.
+                </div>
+                <div class="script-line" data-time="20.5">
+                    <span class="time">[0:20]</span> We've doubled our H-S-A contribution to three thousand dollars, and introduced industry-leading fertility and family planning coverage.
+                </div>
+                <div class="script-line" data-time="22.5">
+                    <span class="time">[0:22]</span> Visit benefits dot company dot com to start your enrollment today. Your future is our investment.
+                </div>
+            </div>
+        </div>
+        
+        <div class="info">
+            <p><span class="highlight">Pro Tip:</span> Click anywhere on the main demo to start audio playback.</p>
+            <p><span class="highlight">Keyboard Shortcuts:</span> Space (pause/play), R (restart), 1-3 (jump to scenes)</p>
+        </div>
+    </div>
+    
+    <script>
+        // Communication with main demo
+        const demoWindow = window.opener || window.parent;
+        
+        function sendCommand(cmd) {
+            demoWindow.postMessage({ command: cmd }, '*');
+        }
+        
+        function updateVolume(type, value) {
+            document.getElementById(`${type}-volume`).textContent = value + '%';
+            sendCommand({ volumeType: type, volume: value / 100 });
+        }
+        
+        // Update script highlighting based on time
+        window.addEventListener('message', (e) => {
+            if (e.data.currentTime !== undefined) {
+                updateScriptHighlight(e.data.currentTime);
+            }
+        });
+        
+        function updateScriptHighlight(time) {
+            const lines = document.querySelectorAll('.script-line');
+            lines.forEach(line => {
+                const lineTime = parseFloat(line.dataset.time);
+                if (time >= lineTime && time < lineTime + 3) {
+                    line.classList.add('active');
+                } else {
+                    line.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

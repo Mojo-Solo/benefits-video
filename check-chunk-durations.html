@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Chunk Durations</title>
+</head>
+<body>
+    <h2>Voiceover Chunk Durations:</h2>
+    <div id="results"></div>
+    
+    <script>
+        const chunks = [
+            // Scene 1
+            'vo-intro-welcome.mp3',
+            'vo-intro-feedback.mp3',
+            'vo-intro-investing.mp3',
+            // Scene 2
+            'vo-dates-intro.mp3',
+            'vo-dates-january.mp3',
+            'vo-dates-march.mp3',
+            'vo-dates-december.mp3',
+            // Scene 3
+            'vo-benefits-intro.mp3',
+            'vo-benefits-support.mp3',
+            'vo-benefits-hsa.mp3',
+            'vo-benefits-cta.mp3'
+        ];
+        
+        const results = document.getElementById('results');
+        let loadedCount = 0;
+        const durations = [];
+        
+        chunks.forEach((file, index) => {
+            const audio = new Audio(file);
+            
+            audio.addEventListener('loadedmetadata', () => {
+                const duration = audio.duration;
+                durations[index] = { file, duration };
+                
+                loadedCount++;
+                if (loadedCount === chunks.length) {
+                    // Display results in order
+                    durations.forEach((d, i) => {
+                        if (!d) return;
+                        const p = document.createElement('p');
+                        const scene = i < 3 ? 1 : i < 7 ? 2 : 3;
+                        p.innerHTML = `<strong>Scene ${scene} - ${d.file}:</strong> ${d.duration.toFixed(2)} seconds`;
+                        results.appendChild(p);
+                    });
+                    
+                    // Calculate scene totals
+                    const scene1Total = durations.slice(0, 3).reduce((sum, d) => sum + d.duration, 0);
+                    const scene2Total = durations.slice(3, 7).reduce((sum, d) => sum + d.duration, 0);
+                    const scene3Total = durations.slice(7).reduce((sum, d) => sum + d.duration, 0);
+                    
+                    const totals = document.createElement('div');
+                    totals.style.marginTop = '20px';
+                    totals.style.fontWeight = 'bold';
+                    totals.innerHTML = `
+                        <p>Scene 1 Total: ${scene1Total.toFixed(2)} seconds</p>
+                        <p>Scene 2 Total: ${scene2Total.toFixed(2)} seconds</p>
+                        <p>Scene 3 Total: ${scene3Total.toFixed(2)} seconds</p>
+                        <p>Grand Total: ${(scene1Total + scene2Total + scene3Total).toFixed(2)} seconds</p>
+                    `;
+                    results.appendChild(totals);
+                    
+                    // Log for copying
+                    console.log('\nChunk Durations:');
+                    durations.forEach(d => console.log(`${d.file}: ${d.duration.toFixed(2)}s`));
+                }
+            });
+            
+            audio.addEventListener('error', (e) => {
+                const p = document.createElement('p');
+                p.innerHTML = `<strong>${file}:</strong> Error loading`;
+                results.appendChild(p);
+                loadedCount++;
+            });
+        });
+    </script>
+</body>
+</html>

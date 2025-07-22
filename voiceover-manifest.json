@@ -1,0 +1,72 @@
+{
+  "chunks": [
+    {
+      "name": "intro-welcome",
+      "scene": 1,
+      "text": "Welcome to an exciting preview of your enhanced 2025 employee benefits package.",
+      "filename": "vo-intro-welcome.mp3"
+    },
+    {
+      "name": "intro-feedback",
+      "scene": 1,
+      "text": "This year, we've listened to your feedback and created a comprehensive benefits program that truly supports you and your family.",
+      "filename": "vo-intro-feedback.mp3"
+    },
+    {
+      "name": "intro-investing",
+      "scene": 1,
+      "text": "With increased coverage, significant cost savings, and new wellness initiatives, we're investing in what matters most - you.",
+      "filename": "vo-intro-investing.mp3"
+    },
+    {
+      "name": "dates-intro",
+      "scene": 2,
+      "text": "Let's review the important dates for your 2025 benefits.",
+      "filename": "vo-dates-intro.mp3"
+    },
+    {
+      "name": "dates-january",
+      "scene": 2,
+      "text": "Starting January first, your enhanced medical, dental, and vision coverage begins - with a fifteen percent reduction in premiums.",
+      "filename": "vo-dates-january.mp3"
+    },
+    {
+      "name": "dates-march",
+      "scene": 2,
+      "text": "On March first, our new wellness program launches, along with an increased H-S-A match of up to three thousand dollars.",
+      "filename": "vo-dates-march.mp3"
+    },
+    {
+      "name": "dates-december",
+      "scene": 2,
+      "text": "Remember, December thirty-first is when your coverage period ends, with automatic renewal available for your convenience.",
+      "filename": "vo-dates-december.mp3"
+    },
+    {
+      "name": "benefits-intro",
+      "scene": 3,
+      "text": "Now, let's explore the game-changing benefits we're introducing for 2025.",
+      "filename": "vo-benefits-intro.mp3"
+    },
+    {
+      "name": "benefits-support",
+      "scene": 3,
+      "text": "You'll have access to twenty-four seven mental health support, zero-dollar telemedicine visits, and comprehensive wellness rewards worth up to twelve hundred dollars.",
+      "filename": "vo-benefits-support.mp3"
+    },
+    {
+      "name": "benefits-hsa",
+      "scene": 3,
+      "text": "We've doubled our H-S-A contribution to three thousand dollars, and introduced industry-leading fertility and family planning coverage.",
+      "filename": "vo-benefits-hsa.mp3"
+    },
+    {
+      "name": "benefits-cta",
+      "scene": 3,
+      "text": "Visit benefits dot company dot com to start your enrollment today. Your future is our investment.",
+      "filename": "vo-benefits-cta.mp3"
+    }
+  ],
+  "totalChunks": 11,
+  "generatedAt": "2025-07-22T03:23:14.754Z"
+}

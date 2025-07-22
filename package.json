@@ -1,0 +1,19 @@
+{
+  "name": "benefits-video-2025",
+  "version": "1.0.0",
+  "description": "2025 Employee Benefits animated video using GSAP",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "npx live-server --port=8000",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug"
+  },
+  "keywords": ["gsap", "animation", "benefits", "video"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}
