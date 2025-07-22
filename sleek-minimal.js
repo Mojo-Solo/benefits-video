@@ -323,12 +323,12 @@ class SimpleAudioManager {
     
     initAudio() {
         this.bgMusic = new Audio('https://cdn.pixabay.com/audio/2024/10/14/audio_29797b8a18.mp3');
-        this.bgMusic.volume = 0.04;
+        this.bgMusic.volume = 0.02;
         this.bgMusic.loop = true;
         
         this.bgMusic.onerror = () => {
             this.bgMusic = new Audio('https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3');
-            this.bgMusic.volume = 0.04;
+            this.bgMusic.volume = 0.02;
             this.bgMusic.loop = true;
         };
     }
@@ -360,10 +360,13 @@ class SimpleAudioManager {
         `;
         
         startCard.innerHTML = `
-            <h2 style="color: #000000; font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 700;">
+            <h2 style="color: #000000; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">
                 2025 Employee Benefits
             </h2>
-            <p style="color: #666666; font-size: 1.2rem; margin-bottom: 3rem; font-weight: 400;">
+            <p style="color: #000000; font-size: 1.4rem; margin-bottom: 2rem; font-weight: 600;">
+                Proof of concept
+            </p>
+            <p style="color: #999999; font-size: 1rem; margin-bottom: 3rem; font-weight: 400;">
                 Simple • Clear • Effective
             </p>
             <button id="start-button" style="
@@ -376,7 +379,7 @@ class SimpleAudioManager {
                 border-radius: 4px;
                 cursor: pointer;
                 transition: all 0.2s ease;
-            ">Start Presentation</button>
+            ">Play Video</button>
             <p style="color: #999999; margin-top: 2rem; font-size: 1rem;">
                 Duration: 80 seconds<br>
                 Clean minimal design
@@ -432,7 +435,7 @@ class SimpleAudioManager {
         }
         
         const audio = new Audio(filename);
-        audio.volume = 1.0;
+        audio.volume = 0.7;
         this.currentVoiceover = audio;
         
         audio.play().catch(e => console.log(`Voiceover blocked: ${filename}`));
