@@ -1,123 +1,94 @@
-# 2025 Employee Benefits Video 🎬
+# Employee Benefits Video Presentation
 
-A high-performance, mobile-optimized animated benefits video built with **GSAP** and vanilla JavaScript.
+A high-performance animated presentation built with GSAP and vanilla JavaScript. Creates professional benefits overview videos with multiple themes and delivery options.
 
-## ✨ Features
+## Live Demo
 
-- **🎯 6 Dynamic Scenes** - 36 seconds of professional animation
-- **🎵 Audio Integration** - Background music + sound effects
-- **📱 Mobile Optimized** - Responsive design with performance scaling
-- **⚡ Hardware Accelerated** - GPU-powered GSAP animations
-- **🎮 Interactive Controls** - Keyboard, mouse, and touch controls
-- **♿ Accessible** - Respects prefers-reduced-motion
+View the presentation: Open `index.html` in a web browser
+- Currently using the **sleek-minimal** theme (black & white)
+- 80-second presentation with 3 scenes
+- Includes audio narration and background music
 
-## 🚀 Quick Start
+## Project Structure
+
+```
+benefits/
+├── index.html              # Main presentation file
+├── corporate-styles.css    # Core styling
+├── src/
+│   └── themes/            # Visual themes
+│       ├── sleek-minimal.js      # Current theme (black & white)
+│       ├── beautiful-videogen.js # Professional blue theme
+│       └── professional-videogen.js # Corporate theme
+├── assets/
+│   └── audio/             # Voiceover and music files
+├── docs/                  # Planning & architecture docs
+│   ├── AUTOMATED_VIDEO_SYSTEM.md
+│   ├── PERFORMANCE_FALLBACK_PLAN.md
+│   └── VIDEO_EXPORT_PLAN.md
+└── archive/               # Old versions and test files
+```
+
+## Features
+
+- **3 Professional Themes**: Sleek minimal, Beautiful videogen, Professional
+- **Responsive Design**: Works on all devices and screen sizes
+- **Performance Optimized**: Device detection with adaptive effects
+- **Audio Integration**: Synchronized voiceover with background music
+- **Interactive Controls**: Play/pause, scene navigation, mute
+- **Accessibility**: Respects reduced motion preferences
+
+## Quick Start
+
+1. Open `index.html` in a modern web browser
+2. Click "Play Video" to start the presentation
+3. Use keyboard shortcuts:
+   - `Space`: Play/Pause
+   - `1/2/3`: Jump to scenes
+   - `M`: Mute/Unmute
+   - `R`: Restart
+
+## Switching Themes
+
+To change the visual theme, edit `index.html` line 209:
+
+```html
+<!-- Current theme -->
+<script src="src/themes/sleek-minimal.js"></script>
+
+<!-- Alternative themes -->
+<script src="src/themes/beautiful-videogen.js"></script>
+<script src="src/themes/professional-videogen.js"></script>
+```
+
+## Development
+
+### Running Locally
 
 ```bash
-# Clone and run
-cd benefits
+# Start a local server
 python3 -m http.server 8000
 # Visit http://localhost:8000
 ```
 
-## 🎮 Controls
+### Project Dependencies
 
-| Key | Action |
-|-----|--------|
-| `Space` | Play/Pause |
-| `←/→` | Scrub timeline |
-| `R` | Restart |
-| `M` | Mute/Unmute |
+- GSAP 3.12.2 (loaded from CDN)
+- No build process required
+- Pure vanilla JavaScript
 
-## 🎨 Scene Breakdown
+## Future Enhancements
 
-1. **Cold Open** - Hero video with particle effects and sliding card
-2. **Effective Dates** - Split-screen layout with floating elements  
-3. **What's New** - Dynamic bullet points with staggered reveals
-4. **Key Dates** - Timeline bubbles with physics animations
-5. **How to Enroll** - Portal preview with step-by-step guide
-6. **Call to Action** - Team photo with confetti celebration
+See documentation in `/docs`:
+- **Automated Video System**: Full SaaS platform for generating custom presentations
+- **Video Export**: Server-side MP4 generation without screen recording
+- **Performance Fallbacks**: Adaptive system for older devices
 
-## 🔧 Technical Details
+## Repository
 
-### Performance Optimizations
-- **Adaptive quality** based on device capabilities
-- **Reduced particle counts** on mobile devices
-- **GPU-accelerated transforms** only
-- **Efficient DOM structure** with minimal repaints
+- GitHub: https://github.com/Mojo-Solo/benefits-video
+- License: MIT
 
-### Audio Sources
-Replace placeholder audio URLs with:
+## Credits
 
-**Free Music Libraries:**
-- [Freesound.org](https://freesound.org) - CC licensed sounds
-- [Zapsplat](https://zapsplat.com) - Professional sound effects  
-- [Adobe Stock Audio](https://stock.adobe.com/audio) - Royalty-free music
-- [Pixabay Music](https://pixabay.com/music/) - Free background tracks
-
-**Recommended Tracks:**
-- Background: Corporate/upbeat instrumental (30-40 seconds)
-- Whoosh: Transition sound effect
-- Pop: UI interaction sound
-
-### Browser Support
-- **Modern browsers** with GSAP 3.12+ support
-- **Mobile Safari** 14+, **Chrome** 88+, **Firefox** 85+
-- **Graceful degradation** for older browsers
-
-## 🎯 Customization
-
-### Update Content
-```javascript
-// Edit text in index.html
-<h1 class="main-title">Your Company Benefits</h1>
-
-// Modify timing in enhanced-script.js
-masterTimeline.add(scene1Timeline, "0") // Start time
-```
-
-### Swap Images
-```html
-<!-- Use your company images -->
-<img src="your-hero-image.jpg" alt="Team">
-```
-
-### Adjust Animations
-```javascript
-// Modify duration, easing, or effects
-.from(".element", {
-    duration: 1.5,  // Animation length
-    ease: "back.out(1.7)", // Easing function
-    stagger: 0.2    // Delay between elements
-})
-```
-
-## 📊 Performance Metrics
-
-| Device Type | Particle Count | FPS Target | Load Time |
-|-------------|----------------|------------|-----------|
-| Desktop | 50 | 60fps | < 2s |
-| Mobile | 20 | 30fps | < 3s |
-| Low-end | 0 | 30fps | < 4s |
-
-## 🔄 Development Workflow
-
-1. **Design** - Update scenes in `index.html`
-2. **Style** - Modify `styles.css` with CSS variables
-3. **Animate** - Enhance `enhanced-script.js` timelines
-4. **Test** - Check across devices and browsers
-5. **Deploy** - Upload to web server or CDN
-
-## 📝 File Structure
-
-```
-benefits/
-├── index.html          # Main HTML structure
-├── styles.css          # Responsive styling + CSS variables  
-├── enhanced-script.js  # GSAP animations + audio
-├── script.js          # Original simple version
-├── package.json       # Project metadata
-└── README.md          # This file
-```
-
-Built with ❤️ using **GSAP**, vanilla **JavaScript**, and **modern CSS**.
+Created as a proof of concept for enterprise benefits communication.
